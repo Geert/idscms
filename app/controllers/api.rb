@@ -14,11 +14,11 @@ class Api < Application
   
   def metaWeblog_getRecentPosts(blogid, username, password, number_of_posts)
     posts = Post.find(:all, :order => "created_at DESC")
-    XMLRPC::Marshal.dump_response(posts.map{|p| p.to_metaweblog })
+    XMLRPC::Marshal.dump_response(posts.map{|p| p.to_metaweblog(:host => request.host) })
   end
   
   def metaWeblog_getPost(postid, username, password)
-    XMLRPC::Marshal.dump_response(Post.find(postid).to_metaweblog)
+    XMLRPC::Marshal.dump_response(Post.find(postid).to_metaweblog(:host => request.host))
   end
   
   def metaWeblog_newPost(blogid, username, password, struct, publish)

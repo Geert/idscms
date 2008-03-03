@@ -23,6 +23,7 @@ puts "Compiling routes.."
 Merb::Router.prepare do |r|
   r.match('/').to(:controller => 'posts', :action => 'index')
   r.match('/xmlrpc').to(:controller => 'api', :action => 'dispatch')
+  r.match('/rsd.xml').to(:controller => 'rsd', :action => 'show')
   # RESTful routes
   # r.resources :posts
 
