@@ -1,6 +1,7 @@
-$TESTING=true
+$:.reject! {|e| e.include? 'TextMate'} # MLA: Reference http://tinyurl.com/2bbfyd
 require 'rubygems'
 require 'merb-core'
+require 'spec'
 
 
 # TODO: Boot Merb, via the Test Rack adapter
