@@ -1,7 +1,12 @@
-Story: Some story about rsd
+Story: Providing RSD (http://en.wikipedia.org/wiki/Really_Simple_Discovery)
 
-  As a ...
-  I want to ...
-  So that ...
+  As a RSD-enabled client
+  I want to be able to know about the available API's 
+  So that I'm able to us the service without asking the user for input
   
-  Scenario: ...
+  Scenario: Retreiving the RSD file
+	Given a site with the domain avikopotato.nl
+	When I go to http://avikopotato.nl
+	Then I should find the RSD link tag in the header
+	When I follow the href from the RSD link tag
+	Then I should find the rsd xml file
