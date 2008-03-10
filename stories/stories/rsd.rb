@@ -14,8 +14,11 @@ Story "Providing RSD (http://en.wikipedia.org/wiki/Really_Simple_Discovery)", %{
     Given "a site with the domain", "avikopotato.nl" do |domain|
       @site = Site.new(:domain => domain)
     end
+    
+    When "I go to ", "avikopotato.nl" do |domain|
+      get '/', {}, {'HTTP_HOST' => 'avikopotato.nl'}
+    end
   end
-
 end
 
 

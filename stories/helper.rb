@@ -7,7 +7,7 @@ require 'spec/story'
 require 'merb_rspec'
 
 class Merb::Test::RspecStory
-  # Include your custom helpers here
+  include Merb::Test::ControllerHelper
 end
 
 Dir['stories/steps/**/*.rb'].each do |steps_file|
